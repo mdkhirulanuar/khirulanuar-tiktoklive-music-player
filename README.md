@@ -1,28 +1,32 @@
 # TikTok Live Music Player
 
-Local-first Windows music player designed for fast song lookup during live streams.
+Local-first Windows desktop music player for fast song lookup during live streams.
 
 ## MVP v0.1
 
-Current scaffold includes a React/TypeScript UI, instant fuzzy search, keyboard Enter-to-play behavior, now-playing panel, and unit tests for search behavior.
+The development branch now includes a native Tauri shell, Windows folder picker, recursive local audio scan, fuzzy filename search, Enter/click-to-play, and a Now Playing panel. Supported extensions: MP3, FLAC, WAV, M4A, AAC and OGG.
 
-> The current branch uses demo tracks while the native filesystem/audio layer is implemented next. It does not yet scan or play files from your Windows music folder.
+Metadata tags and queue/history are not implemented yet; the current title is derived from the filename.
 
-## Development
+## Run locally
 
-Prerequisites: Node.js 20+.
+Prerequisites: Node.js 20+, Rust stable, and the Windows prerequisites required by Tauri 2.
 
 ```bash
 npm install
 npm test
-npm run dev
-npm run build
+npm run desktop
 ```
 
-## Planned next increment
+For the web-only UI shell use `npm run dev`. Native folder scanning requires `npm run desktop`.
 
-Native Tauri integration: folder picker, recursive audio scan (MP3/FLAC/WAV/M4A), metadata extraction, safe local playback, queue, history, and Windows packaging.
+## Privacy
 
-## Safety / privacy
+Music remains on the user's computer. Do not commit music files or private library data to this repository.
 
-The product is local-first. Music files should remain on the user's computer and must not be committed to this repository.
+## Next increment
+
+1. Read embedded title/artist metadata with filename fallback.
+2. Add queue, next/previous, history and keyboard controls.
+3. Add GitHub Actions validation and Windows installer build.
+4. Validate audio routing workflow with TikTok LIVE Studio.
