@@ -1,0 +1,1 @@
+import Fuse from "fuse.js";export type Track={id:string;title:string;artist:string;path:string};export function searchTracks(tracks:Track[],query:string){const q=query.trim();if(!q)return tracks;return new Fuse(tracks,{keys:["title","artist","path"],threshold:.35,ignoreLocation:true}).search(q).map(x=>x.item)}
