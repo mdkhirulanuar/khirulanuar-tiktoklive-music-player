@@ -1,0 +1,1 @@
+fn main(){tiktoklive_music_player_lib::run();}
